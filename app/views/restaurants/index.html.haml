@@ -1,1 +1,23 @@
-hi
+:ruby
+  r = ActiveSupport::JSON.decode("{\"restaurants\": [{ \"name\":\"Taco Truck\" , \"address\":\"123 Blue Street\" },
+  { \"name\":\"Chez Momo\" , \"address\":\"456 Red Avenue\" }]}")
+  restaurant_name1 = r["restaurants"][0]["name"]
+  restaurant_address1 = r["restaurants"][0]["address"]
+  restaurant_name2 = r["restaurants"][1]["name"]
+  restaurant_address2 = r["restaurants"][1]["address"]
+  
+!!!
+%html
+  %head
+    %title Restaurants
+    = stylesheet_link_tag    "restaurants", :media => "all"
+    = javascript_include_tag "restaurants"
+    = csrf_meta_tags
+  %body
+    .treasure1
+      .text
+        = restaurant_name1
+        = restaurant_address1
+    .treasure2
+      = restaurant_name2
+      = restaurant_address2
