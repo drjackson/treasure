@@ -1,3 +1,31 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$green: #80b280;
+
+@mixin treasure-image($top, $left) {
+  background-image: image-url("chest2.png");
+  background-size: cover;
+  height: 306px;
+  width: 370px;
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+body {
+  background-color: $green;
+}
+
+.treasure1 {
+  @include treasure-image(20px, 100px);
+}
+
+.treasure2 {
+  @include treasure-image(200px, 700px);
+}
+
+.text {
+  display: none;
+}
