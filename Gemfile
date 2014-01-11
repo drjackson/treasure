@@ -22,11 +22,8 @@ end
 
 gem 'jquery-rails'
 
-<<<<<<< HEAD
 gem "redis", "~> 3.0.6"
-=======
 gem 'haml', '~> 4.0.5'
->>>>>>> Remove unnecessary files, add haml gem
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -35,7 +32,7 @@ gem 'haml', '~> 4.0.5'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
