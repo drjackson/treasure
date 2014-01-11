@@ -25,3 +25,7 @@ body {
 .treasure2 {
   @include treasure-image(200px, 700px);
 }
+
+.text {
+  display: none;
+}
