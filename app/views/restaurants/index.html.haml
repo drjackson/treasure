@@ -1,10 +1,8 @@
 :ruby
-  r = ActiveSupport::JSON.decode("{\"restaurants\": [{ \"name\":\"Taco Truck\" , \"address\":\"123 Blue Street\" },
-  { \"name\":\"Chez Momo\" , \"address\":\"456 Red Avenue\" }]}")
-  restaurant_name1 = r["restaurants"][0]["name"]
-  restaurant_address1 = r["restaurants"][0]["address"]
-  restaurant_name2 = r["restaurants"][1]["name"]
-  restaurant_address2 = r["restaurants"][1]["address"]
+  r = ActiveSupport::JSON.decode("{\"restaurants\": [{ \"name\":\"Taco Truck\" , \"address\":\"123 Blue Street\" }]}")
+  restaurant_name = r["restaurants"][0]["name"]
+  restaurant_address = r["restaurants"][0]["address"]
+  r2 = Restaurant.new({:name => "Papito", :address => "Potrero Hill", :url => "foo.com"})
   
 !!!
 %html
@@ -16,9 +14,10 @@
   %body
     .treasure1
       .text
-        = restaurant_name1
-        = restaurant_address1
+        = r2.name
+        = r2.address
+        = r2.url
     .treasure2
       .text
-        = restaurant_name2
-        = restaurant_address2
+        = restaurant_name
+        = restaurant_address

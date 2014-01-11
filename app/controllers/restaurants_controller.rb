@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
 	def index
 		@restaurants = REDIS.hgetall 'restaurants'
 	end
+  helper_method :index
 
 	def create
 		restaurant = Restaurant.new(params[:restaurant])
@@ -9,6 +10,7 @@ class RestaurantsController < ApplicationController
     restaurant_key = "restaurant_#{index}"
 		REDIS.mapped_hmset 'restaurants', {restaurant_key: Marshal::dump(restaurant)}
 	end
+  helper_method :create
 
 	def show
 		id = params[:id]
@@ -23,4 +25,5 @@ class RestaurantsController < ApplicationController
 			format.json { render :json => restaurant}
 		end
 	end
+  helper_method :random
 end
