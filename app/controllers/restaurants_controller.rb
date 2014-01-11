@@ -6,7 +6,8 @@ class RestaurantsController < ApplicationController
 	def create
 		restaurant = Restaurant.new(params[:restaurant])
 		index = (REDIS.hlen 'restaurants') + 1
-		REDIS.mapped_hmset 'restaurants', {"restaurant_#{index}", Marshal::dump(restaurant)}
+    restaurant_key = "restaurant_#{index}"
+		REDIS.mapped_hmset 'restaurants', {restaurant_key: Marshal::dump(restaurant)}
 	end
 
 	def show
