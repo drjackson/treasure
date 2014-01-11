@@ -5,17 +5,19 @@
 $green: #80b280;
 
 @mixin treasure-image($top, $left) {
-  background-image: image-url("chest2.png");
-  background-size: cover;
-  height: 306px;
-  width: 370px;
+  background-image: image-url("treasure.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 150px;
+  width: 150px;
   position: absolute;
   top: $top;
   left: $left;
 }
 
 body {
-  background-color: $green;
+  background-image: image-url("grass.png");
+  background-repeat: repeat;
 }
 
 .treasure1 {
@@ -28,4 +30,5 @@ body {
 
 .text {
   display: none;
+  color: white;
 }
