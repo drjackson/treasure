@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
 	def index
-		@restaurants = REDIS.hgetall('restaurants').values.map{|r| Marshal::load(r)}
+		@restaurants = REDIS.hgetall('restaurants').values.map{|r| Marshal::load(r)}.sample(2)
 	end
 
 	def create
@@ -9,7 +9,12 @@ class RestaurantsController < ApplicationController
     #way to do it
 		next_index = (REDIS.hlen 'restaurants') + 1
     REDIS.hmset 'restaurants', "restaurant_#{next_index}", Marshal::dump(restaurant)
+    render 'new'
 	end
+
+   def new
+    @restaurant = Restaurant.new
+  end
 
 	def show
 		id = params[:id]
