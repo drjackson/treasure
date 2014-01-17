@@ -26,6 +26,21 @@ namespace :deploy do
     end
   end
 
+  desc "Zero-downtime restart of Unicorn"
+  task :restart, :except => { :no_release => true } do
+    run "kill -s USR2 `cat /tmp/unicorn.treasure.pid`"
+  end
+
+  desc "Start unicorn"
+  task :start, :except => { :no_release => true } do
+    run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
+  end
+
+  desc "Stop unicorn"
+  task :stop, :except => { :no_release => true } do
+    run "kill -s QUIT `cat /tmp/unicorn.treasure.pid`"
+  end
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
