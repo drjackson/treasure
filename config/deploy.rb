@@ -20,25 +20,23 @@ namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+    on roles(:app) do
+      run "kill -s USR2 `cat /tmp/unicorn.treasure.pid`"
     end
-  end
-
-  desc "Zero-downtime restart of Unicorn"
-  task :restart, :except => { :no_release => true } do
-    run "kill -s USR2 `cat /tmp/unicorn.treasure.pid`"
   end
 
   desc "Start unicorn"
   task :start, :except => { :no_release => true } do
-    run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
+    on roles(:app) do
+      run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D -E production"
+    end
   end
 
   desc "Stop unicorn"
   task :stop, :except => { :no_release => true } do
-    run "kill -s QUIT `cat /tmp/unicorn.treasure.pid`"
+    on roles(:app) do
+      run "kill -s QUIT `cat /tmp/unicorn.treasure.pid`"
+    end
   end
 
   after :restart, :clear_cache do
