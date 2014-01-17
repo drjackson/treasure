@@ -1,4 +1,3 @@
-# REDIS_CONFIG = YAML::load_file(Rails.root.join('config', 'redis.yml'))
 if Rails.env.development?
   REDIS = Redis.new
 else
