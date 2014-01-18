@@ -49,5 +49,4 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:cleanup'
-  after 'deploy', 'deploy:assets:precompile'
 end
