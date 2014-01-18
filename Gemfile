@@ -35,7 +35,9 @@ gem 'haml', '~> 4.0.5'
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
 
 # To use debugger
 # gem 'debugger'
