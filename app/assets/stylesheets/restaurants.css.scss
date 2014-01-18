@@ -1,4 +1,4 @@
-$green: #009900;
+$green: #92e093;
 
 @mixin treasure-image($top, $left) {
   background-image: image-url("treasure_closed.png");
@@ -10,6 +10,21 @@ $green: #009900;
   position: absolute;
   top: $top;
   left: $left;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.50);
+  z-index: 9998;
+}
+
+body {
+  background: $green;
 }
 
 .treasure1 {
@@ -34,4 +49,5 @@ $green: #009900;
   position: relative;
   bottom: 60px;
   text-align: center;
+  color: white;
 }
