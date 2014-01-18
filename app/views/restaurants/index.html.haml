@@ -5,12 +5,20 @@
     = javascript_include_tag "restaurants"
     = csrf_meta_tags
   %body
-    .treasure1
-      .text
-        = @restaurants.first.name
-        = @restaurants.first.address
-    .treasure2
-      .text
-        = @restaurants.last.name
-        = @restaurants.last.address
-
+    %div.treasure1
+      %div.text
+        = restaurant_name
+        %br
+        = restaurant_address
+    %div.treasure2
+      %div.text
+        = r2.name
+        %br
+        = r2.address
+        %br
+        = r2.url
+    %div.treasure3
+      %div.text
+        = restaurant_name
+        %br
+        = restaurant_address
