@@ -1,9 +1,8 @@
 $(document).ready(function() {
-  alert('hellos');
   function showText() {
     $(this).addClass("treasure-open");
     $(this).find(".text").show();
-    $(this).siblings(".overlay").show();
+    $("#overlay").show();
     $(this).css("z-index", "9999");
   }
   
