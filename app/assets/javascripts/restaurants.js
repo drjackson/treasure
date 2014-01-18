@@ -2,7 +2,8 @@ $(document).ready(function() {
   function showText() {
     $(this).addClass("treasure-open");
     $(this).find(".text").show();
-    $(this).siblings().css("opacity", "0.5");
+    $(this).siblings(".overlay").show();
+    $(this).css("z-index", "9999");
   }
   
   $(".treasure1").click(showText);
