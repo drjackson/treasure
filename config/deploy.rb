@@ -26,14 +26,14 @@ namespace :deploy do
   end
 
   desc "Start unicorn"
-  task :start, :except => { :no_release => true } do
+  task :start do
     on roles(:app) do
       run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D -E production"
     end
   end
 
   desc "Stop unicorn"
-  task :stop, :except => { :no_release => true } do
+  task :stop do
     on roles(:app) do
       run "kill -s QUIT `cat /tmp/unicorn.treasure.pid`"
     end
