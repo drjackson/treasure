@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  alert('hellos');
   function showText() {
     $(this).addClass("treasure-open");
     $(this).find(".text").show();
