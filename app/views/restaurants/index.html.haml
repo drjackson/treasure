@@ -1,9 +1,16 @@
 #overlay
 .treasure1
   .text
-    = @restaurants.first.name
-    = @restaurants.first.address
+    = @restaurants[0].name
+    %br
+    = @restaurants[0].address
 .treasure2
   .text
-    = @restaurants.last.name
-    = @restaurants.last.address
+    = @restaurants[1].name
+    %br
+    = @restaurants[1].address
+.treasure3
+  .text
+    = @restaurants[2].name
+    %br
+    = @restaurants[2].address

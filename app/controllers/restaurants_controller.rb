@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
 	def index
-		@restaurants = REDIS.hgetall('restaurants').values.map{|r| Marshal::load(r)}.sample(2)
+		@restaurants = REDIS.hgetall('restaurants').values.map{|r| Marshal::load(r)}.sample(3)
 	end
 
 	def create
